@@ -8,7 +8,7 @@ COMPILEFLAGS = -I /usr/local/include -D_LINUX -D_REENTRANT -Wall  -O3 -march=noc
 LINKFLAGS = -L /usr/local/lib -lGVars3 -lcvd -lGLU -lGL -llapack 
 
 # Edit this line to change video source
-VIDEOSOURCE = VideoSource_Linux_DV.o
+VIDEOSOURCE = VideoSource_Linux_V4L.o
 
 OBJECTS=	main.o\
 		GLWindow2.o\
