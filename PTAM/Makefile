@@ -4,8 +4,8 @@
 # Edit the lines below to point to any needed include and link paths
 # Or to change the compiler's optimization flags
 CC = g++
-COMPILEFLAGS = -I /usr/local/include -D_LINUX -D_REENTRANT -Wall  -O3 -march=nocona -msse3
-LINKFLAGS = -L /usr/local/lib -lGVars3 -lcvd -lGLU -lGL -llapack 
+COMPILEFLAGS = -I $(HOME)/local/include -D_LINUX -D_REENTRANT -Wall  -O3 -march=nocona -msse3 -fno-strict-aliasing
+LINKFLAGS = -L  $(HOME)/local/lib -lGVars3 -lcvd -lGLU -lGL -llapack $(3DSLIB)
 
 # Edit this line to change video source
 VIDEOSOURCE = VideoSource_Linux_V4L.o
@@ -48,26 +48,16 @@ PTAM: $(OBJECTS)
 CameraCalibrator:$(CALIB_OBJECTS)
 	$(CC) -o CameraCalibrator $(CALIB_OBJECTS) $(LINKFLAGS)
 
-
 %.o: %.cc
 	$(CC) $< -o $@ -c $(COMPILEFLAGS)
 
 clean:
 	rm *.o
-
-
 depend:
 	rm dependecies; touch dependencies
 	makedepend -fdependencies $(INCLUDEFLAGS) $(MOREINCS) *.cc *.h
 
 
 -include dependencies
-
-
-
-
-
-
-
 
 

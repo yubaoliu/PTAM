@@ -1,4 +1,4 @@
-prefix=/usr/local
+prefix=/home/yubao/local
 includedir=${prefix}/include
 
 Name: TooN
